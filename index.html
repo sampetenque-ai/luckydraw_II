@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +11,21 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
+
         @keyframes slot-spin {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
         }
+
         .animate-slot {
             animation: slot-spin 0.2s linear infinite;
         }
-        
+
         /* Winning Confetti Effect */
         .confetti {
             position: fixed;
@@ -30,9 +37,16 @@
         }
     </style>
 </head>
+
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div
+            style="height: 100vh; display: flex; justify-content: center; align-items: center; font-size: 24px; color: #666;">
+            Loading application...
+        </div>
+    </div>
     <!-- Missing script tag added here -->
     <script type="module" src="index.tsx"></script>
 </body>
+
 </html>
