@@ -11,6 +11,18 @@ A React-based HR utility application featuring Lucky Draw and Auto Grouping capa
     -   **New**: Safe "Clear Winners" functionality with confirmation modal.
 -   **Auto Grouping**: Intelligent grouping powered by Google Gemini AI.
 
+## Technical Setup (Completed Tasks)
+
+The following configurations have been applied to the project as per requirements:
+
+1.  **Package Management**:
+    -   `package.json` is configured with `vite` and `react`.
+    -   **Tailwind CSS** has been migrated from CDN to a local build process (npm packages) for better performance and maintainability.
+2.  **CI/CD**:
+    -   GitHub Actions workflow (`.github/workflows/deploy.yml`) is set up to automatically build and deploy to **GitHub Pages** on push to `main`.
+3.  **Git Configuration**:
+    -   `.gitignore` is configured to exclude `node_modules`, `.env` files, and build artifacts (`dist`).
+
 ## Local Development
 
 ### Prerequisites
@@ -19,41 +31,36 @@ A React-based HR utility application featuring Lucky Draw and Auto Grouping capa
 
 ### Installation
 1.  Clone the repository.
-2.  Install dependencies:
+2.  Install all dependencies (including the newly added Tailwind CSS):
     ```bash
     npm install
     ```
-3.  Set up environment variables:
-    -   Create `.env.local` in the root directory.
-    -   Add your API key: `GEMINI_API_KEY=your_api_key_here`
+    *Note: This will also generate/update your `package-lock.json`.*
 
-### Running
+### Environment Variables
+1.  Create a `.env` or `.env.local` file in the root directory.
+2.  Add your API key:
+    ```
+    GEMINI_API_KEY=your_api_key_here
+    ```
+
+### Running the App
 Start the development server:
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) (or the port shown in terminal).
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Deployment
 
-This project is configured for automatic deployment to **GitHub Pages** using GitHub Actions.
+This project uses **GitHub Actions** for deployment.
 
-### How to Deploy
-1.  Push your changes to the `main` branch.
-2.  The GitHub Action defined in `.github/workflows/deploy.yml` will automatically:
-    -   Install dependencies.
-    -   Build the project.
-    -   Deploy the `dist` folder to the `gh-pages` branch.
-3.  Go to your repository settings -> Pages, and ensure the source is set to `gh-pages` branch.
-
-### Manual Build
-To build the project locally for production:
-```bash
-npm run build
-```
-The output will be in the `dist` directory.
+1.  **Push to GitHub**: Commit your changes and push to the `main` branch.
+2.  **Automatic Build**: The Action will trigger, install dependencies, build the project, and deploy the `dist` folder to the `gh-pages` branch.
+3.  **Settings**: In your GitHub Repository, go to **Settings > Pages** and ensure the "Source" is set to "Deploy from a branch" and select `gh-pages` / `/ (root)`.
 
 ## Project Structure
--   `src/components`: UI Components (LuckyDraw, AutoGrouping, etc.)
--   `src/services`: API services (Gemini integration)
--   `.github/workflows`: CI/CD configurations
+-   `src/components`: UI Components
+-   `src/services`: API services
+-   `.github/workflows`: Deployment scripts
+-   `tailwind.config.js` & `postcss.config.js`: CSS framework configuration
