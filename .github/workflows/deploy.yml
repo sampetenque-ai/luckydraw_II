@@ -17,7 +17,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm ci
+          npm install
           npm run build
         env:
           # If you have secrets needed for build, add them here
